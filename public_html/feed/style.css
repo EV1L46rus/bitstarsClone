@@ -1,0 +1,322 @@
+.all_screen {
+	width: 100%;
+	padding-top: 10px;
+}
+
+.all_screen>h2 {
+	margin: 0;
+	text-align: center;
+}
+
+
+.screen {
+	width: 80%;
+	height: calc(100vh - 160px);
+	margin-left: 10%;
+	align-items: center;
+	overflow-y: scroll;
+	transition: .2s;
+}
+
+.screen::-webkit-scrollbar {
+	width: 0px;
+}
+
+.screen { 
+	-ms-overflow-style: none; 
+}
+
+.screen {
+	overflow: -moz-scrollbars-none;
+}
+
+.feed_one {
+	width: 100%-20px;
+	padding: 10px;
+	transition: .2s;
+}
+
+.up_feed {
+	display: flex;
+	width: 100%;
+	height: 40px;
+}
+
+.up_feed>img {
+	border-radius: 50%;
+	width: 34px;
+	height: 34px;
+	margin: 2px;
+}
+
+.up_feed>h2 {
+	margin: auto;
+	margin-left: 5px;
+}
+
+.date {
+	width: 100px;
+	height: 40px;
+	text-align: right;
+}
+
+.date>h4 {
+	height: 20px;
+	margin: auto;
+}
+
+.song_mrgn{
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 50px;
+	margin-top: 5px;
+}
+
+.btn_play {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	top: 10px;
+	left: 10px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: .2s;
+}
+
+.btn_play:hover {
+	background: rgba(46, 46, 46, .4);
+}
+
+.btn_play:active {
+	background: rgba(46, 46, 46, .6);
+}
+
+.play_btn {
+	width: 30px;
+	height: 30px;
+	margin: 10px;
+
+}
+
+.avatar_audio {
+	width: 50px;
+	height: 50px;
+}
+
+.titles_songs {
+	width: 60%;
+	height: 50px;
+	margin: auto;
+}
+
+.titles_songs>h3{
+	margin: auto;
+}
+
+.titles_songs>h4 {
+	margin: auto;
+	color: grey;
+}
+
+.genre {
+	width: 25%;
+	height: 50px;
+	display: flex;
+	margin: auto;
+	margin-right: 0;
+}
+
+.btn_genre {
+	width: 30%;
+	height: 50px;
+	text-align: center;
+	background: rgba(41, 41, 41, .7);;
+	border-radius: 30px;
+	margin: auto;
+	margin-right: 0;
+
+}
+
+.btn_genre>h5 {
+	margin: auto;
+	margin-top: 15px;
+}
+
+
+
+
+
+.audio {
+	position: fixed;
+	bottom: -100px;
+	transition: bottom .2s;
+}
+
+.audio.active {
+	display: inline-block;
+	position: fixed;
+	width: calc(80% - 100px);
+	background: whitesmoke;
+	height: 50px;
+	bottom: 0px;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%);
+	align-items: center;
+}
+
+
+.activesong{
+	background: rgba(2, 95, 248, .6);
+}
+
+.left,.right {
+	background: whitesmoke;
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	bottom: -100px;
+	transition: .2s;
+	cursor: pointer;
+}
+
+.left:hover,.right:hover {
+	background: lightgrey;
+}
+
+.left:active,.right:active {
+	background: grey;
+}
+
+.left>img,.right>img {
+	width: 30px;
+	height: 30px;
+	margin: 10px;
+}
+
+.left {
+ 	left: 10%;
+
+}
+
+.left>img {
+ 	transform: rotate(180deg);
+}
+
+.right {
+ 	right: 10%;
+}
+
+.btn {
+ 	bottom: 0px;
+}
+
+
+
+
+.coment {
+	width: calc(100% - 50px);
+	margin: 20px;
+	margin-right: 0px;
+	margin-left: 50px;
+}
+
+.one_coment {
+	width: 100%;
+	padding-top: 20px;
+
+}
+
+.one_com_up {
+	display: flex;
+	width: 100%;
+	height: 50px;
+}
+
+.one_com_up>img {
+	width: 40px;
+	height: 40px;
+	margin: 5px;
+	border-radius: 50%;
+}
+
+.one_com_up>h3 {
+	width: calc(100% - 150px);
+	height: 40px;
+	margin: auto;
+	padding-top: 10px;
+	vertical-align: middle;
+}
+
+.one_com_up>h4 {
+	width: 100px;
+	height: 40px;
+	margin: auto;
+	padding-top: 10px;
+	text-align: right;
+	color: grey;
+}
+
+.write_com {
+	display: flex;
+	width: 100%;
+	height: 80px;
+	padding-top: 10px;
+	border-top:  1px solid white;
+
+}
+
+.inp_com {
+	width: calc(100% - 52px);
+	height: 75px;
+	border:  1 px solid grey;
+	border-radius: 10px;
+	resize: none;
+}
+
+.inp_com::-webkit-scrollbar {
+	width: 0px;
+}
+
+.inp_com { 
+	-ms-overflow-style: none; 
+}
+
+.inp_com {
+	overflow: -moz-scrollbars-none;
+}
+
+.text {
+	width: calc(100% - 40px);
+	margin-left: 20px;
+	margin-right: 20px;
+
+}
+
+.btn_send {
+	width: 50px;
+	height: 50px;
+	background: 000;
+	cursor: pointer;
+	border: 0px;
+	padding: 0;
+	border-radius: 10px;
+	margin-top: 12.5px;
+	transition: .2s;
+}
+
+.btn_send:hover {
+	background: rgba(41, 41, 41, .6);
+}
+
+.btn_send>img {
+	width: 30px;
+	height: 30px;
+	margin: 10px;
+}
+
+.one_com_full {
+	width: 100%;
+	margin-bottom: 20px;
+}
