@@ -39,7 +39,7 @@
 						<button class="select_genre" name="filtr_genre[]" value="4">
 							<h3>Pop</h3>
 						</button>
-						<div class="showMore" onclick="showMore(this)">
+						<div class="showMore" onclick="showMore()">
 							+ Show more
 						</div>
 					</div>
@@ -61,7 +61,7 @@
 					}
 
 				echo '	
-						<div class="showMore" id="hide" onclick="hideMore(this)">
+						<div class="showMore" id="hide" onclick="hideMore()">
 							- hide
 						</div>
 					</div>

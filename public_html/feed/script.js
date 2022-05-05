@@ -36,6 +36,8 @@ function nextSong(eSong) {
     }
 }
 
+let playLast = ''
+
 function prevSong(eSong) {
     let newSong = eSong.closest(".feed_one").previousElementSibling?.querySelector("audio")
     if (newSong) {
@@ -49,6 +51,8 @@ function prevSong(eSong) {
 document.addEventListener("click", e => {
     if (e.target.closest(".btn_play")) {
         if (e.target.closest(".feed_one")) {
+            let song = e.target.closest('.feed_one')
+            let playStop = song.querySelector('.play_btn') 
             if (!document.querySelector(".btn")) {
                 document.querySelector(".left")?.classList.add("btn")
                 document.querySelector(".right")?.classList.add("btn")
@@ -58,8 +62,18 @@ document.addEventListener("click", e => {
             if (!audio.classList.contains("active")) {
                 changeSong(audio)
                 screenHeight.style = 'height: calc(100vh - 200px);'
+                playStop.src = '/img/pause-white.png'
+                playLast.src = '/img/play_white.png'
+                playLast = playStop
             } else {
-                audio.paused ? audio.play() : audio.pause()
+                if (audio.paused) {
+                audio.play()
+                
+                playStop.src = '/img/pause-white.png'
+            } else {
+                audio.pause()
+                playStop.src = '/img/play_white.png'
+            }
             }
         }
     }

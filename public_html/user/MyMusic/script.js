@@ -45,11 +45,15 @@ function prevSong(eSong) {
     }
 }
 
+let playLast = ''
+
 document.addEventListener("click", e => {
 	let leftMenu = document.querySelector('.left_menu')
 	let screen = document.querySelector('.screen')
 	if (e.target.closest(".btn_play")) {
     if (e.target.closest(".one_song")) {
+    	let song = e.target.closest('.one_song')
+        let playStop = song.querySelector('.play')
         if (!document.querySelector(".btn")) {
             document.querySelector(".left")?.classList.add("btn")
             document.querySelector(".right")?.classList.add("btn")
@@ -59,8 +63,18 @@ document.addEventListener("click", e => {
         let audio = e.target.closest(".one_song").querySelector("audio")
         if (!audio.classList.contains("active")) {
             changeSong(audio)
+            playStop.src = '/img/pausedark.png'
+            playLast.src = '/img/playdark.png'
+            playLast = playStop
         } else {
-            audio.paused ? audio.play() : audio.pause()
+            if (audio.paused) {
+                audio.play()
+                
+                playStop.src = '/img/pausedark.png'
+            } else {
+                audio.pause()
+                playStop.src = '/img/playdark.png'
+            }
         }
     }
  	}
@@ -116,6 +130,7 @@ document.addEventListener("click", e => {
 
 function editPopUp(button) {
 	const song = button.closest('.one_song')
+	const imgCart = song.querySelector('.img_song').src
 	const songId = song.dataset.id
 	const songRash = song.dataset.rash
 	const songTitle = song.dataset.title
@@ -151,7 +166,7 @@ function editPopUp(button) {
 	inpImg.name = 'img_file'
 	inpImg.accept = 'image/*'
 	let imgSong = document.createElement('img')
-	imgSong.src = "/img/imgsongs/"+songId+songRash+"?"+random
+	imgSong.src = imgCart
 	imgSong.id = 'avatar'
 	let changeDiv = document.createElement('div')
 	changeDiv.className = 'change'

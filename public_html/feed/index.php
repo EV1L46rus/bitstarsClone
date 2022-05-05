@@ -20,7 +20,7 @@
 	<div class="all_screen">
 		<h2>NEWS</h2>
 		<div class="screen" >';
-		$result = mysqli_query($link, "SELECT * FROM `music` ORDER BY `music`.`dmy_music` DESC, `music`.`hm` DESC");
+		$result = mysqli_query($link, "SELECT * FROM `music` ORDER BY `id` DESC");
 		for ($data = []; $row = mysqli_fetch_assoc($result); $data[] = $row);
 		foreach ($data as $count => $ksong) {
 			foreach ($ksong as $key => $value){
@@ -76,7 +76,7 @@
 				<div class="bottom_feed">
 					<div class="song_mrgn">
 						<div class="btn_play"></div>
-						<img src="/img/play.png" alt="" class="play_btn">
+						<img src="/img/play_white.png" alt="" class="play_btn">
 						<img src="/img/imgsongs/',$imgAudio,'" alt="" class="avatar_audio">
 						<div class="titles_songs">
 						<h3>',$title,'</h3>

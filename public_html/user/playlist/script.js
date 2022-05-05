@@ -52,14 +52,33 @@ function prevSong(eSong) {
     }
 }
 
+const leftMenu = document.querySelector('.left_menu')
+const screen = document.querySelector('.screen')
+const makeMenu = document.querySelector('.playlist_push')
+let playLast = ''
+
+
 document.addEventListener("click", e => {
-   let leftMenu = document.querySelector('.left_menu')
-   let screen = document.querySelector('.screen')
-   let makeMenu = document.querySelector('.playlist_push')
-   
    if (e.target.closest(".play_bg")) {
-    if (e.target.closest(".song")) {
-        let playStop = document.querySelector('.play')
+        let song = e.target.closest('.song')
+        let playStop = song.querySelector('.play')   
+        let audio = e.target.closest(".song").querySelector("audio")
+        if (!audio.classList.contains("active")) {
+            changeSong(audio)
+            playStop.src = '/img/pausedark.png'
+            playLast.src = '/img/playdark.png'
+            playLast = playStop
+        } else {
+            if (audio.paused) {
+                audio.play()
+                
+                playStop.src = '/img/pausedark.png'
+            } else {
+                audio.pause()
+                playStop.src = '/img/playdark.png'
+            }
+            
+        }
         if (!document.querySelector(".btn")) {
             document.querySelector(".left")?.classList.add("btn")
             document.querySelector(".right")?.classList.add("btn")
@@ -67,17 +86,7 @@ document.addEventListener("click", e => {
             leftMenu.style = "height: calc(100vh - 155px);"
             screen.style = "height: calc(100vh - 155px);"
             makeMenu.style = "height: calc(100vh - 155px);"
-        }   
-        let audio = e.target.closest(".song").querySelector("audio")
-        if (!audio.classList.contains("active")) {
-            changeSong(audio)
-            playStop.src = '/img/pausedark.png'
-        } else {
-            audio.paused ? audio.play() : audio.pause()
-            playStop.src = '/img/playdark.png'
-            console.log(playStop)
         }
-    }
    }
 })
 

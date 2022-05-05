@@ -51,8 +51,12 @@ function prevSong(eSong) {
     }
 }
 
+let playLast = ''
+
 document.addEventListener("click", e => {
     if (e.target.closest(".song")) {
+        let song = e.target.closest('.song')
+        let playStop = song.querySelector('.play') 
         if (!document.querySelector(".btn")) {
             document.querySelector(".left")?.classList.add("btn")
             document.querySelector(".right")?.classList.add("btn")
@@ -63,8 +67,18 @@ document.addEventListener("click", e => {
         let audio = e.target.closest(".song").querySelector("audio")
         if (!audio.classList.contains("active")) {
             changeSong(audio)
+            playStop.src = '/img/pausedark.png'
+            playLast.src = '/img/playdark.png'
+            playLast = playStop
         } else {
-            audio.paused ? audio.play() : audio.pause()
+        if (audio.paused) {
+                audio.play()
+                
+                playStop.src = '/img/pausedark.png'
+            } else {
+                audio.pause()
+                playStop.src = '/img/playdark.png'
+            }
         }
     }
 })
@@ -75,8 +89,7 @@ function pushBtn(button) {
         document.querySelector('.menu_lvl_2').classList.remove('slide_down')
         document.querySelector('.menu_lvl_2_hide').classList.remove('slide_down')
         document.querySelector('.pushMenuType').style = 'top: 150px;'
-        hideMore(document.getElementById('#hide'))
-        
+        hideMore()
     } else {
         button.querySelector('img').classList.add('rotate90')
         document.querySelector('.menu_lvl_2').classList.add('slide_down')
@@ -88,17 +101,17 @@ function pushBtn(button) {
 }
 
 
-function showMore (div) {
+function showMore () {
     document.querySelector('.menu_lvl_2').style = 'display: none;'
     document.querySelector('.menu_lvl_2_hide').style = 'display: block;'
     document.querySelector('.pushMenuType').style = 'top: 5025px;'
     
 }
 
-function hideMore (div) {
+function hideMore () {
     document.querySelector('.menu_lvl_2').style = 'display: block;'
     document.querySelector('.menu_lvl_2_hide').style = 'display: none;'
-    if (document.querySelector('.rotate90')) {
+    if (document.querySelector('.slide_down')) {
         document.querySelector('.pushMenuType').style = 'top: 375px;'
     } else {
         document.querySelector('.pushMenuType').style = 'top: 150px;'

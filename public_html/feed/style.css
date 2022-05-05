@@ -75,21 +75,21 @@
 
 .btn_play {
 	position: absolute;
-	width: 30px;
-	height: 30px;
-	top: 10px;
-	left: 10px;
-	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	top: 5px;
+	left: 5px;
+	border-radius: 10px;
 	cursor: pointer;
 	transition: .2s;
 }
 
 .btn_play:hover {
-	background: rgba(46, 46, 46, .4);
+	background: rgba(2, 95, 248, .2);
 }
 
 .btn_play:active {
-	background: rgba(46, 46, 46, .6);
+	background: rgba(46, 46, 46, .4);
 }
 
 .play_btn {
